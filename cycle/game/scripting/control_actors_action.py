@@ -5,9 +5,9 @@ from game.shared.point import Point
 
 class ControlActorsAction(Action):
     """
-    An input action that controls the CylcleOne.
+    An input action that controls the CycleOne.
     
-    The responsibility of ControlActorsAction is to get the direction and move the CylcleOne's head.
+    The responsibility of ControlActorsAction is to get the direction and move the CycleOne's head.
 
     Attributes:
         _keyboard_service (KeyboardService): An instance of KeyboardService.
@@ -45,5 +45,5 @@ class ControlActorsAction(Action):
         if self._keyboard_service.is_key_down('s'):
             self._direction = Point(0, constants.CELL_SIZE)
         
-        CylcleOne = cast.get_first_actor("CylcleOne")
-        CylcleOne.turn_head(self._direction)
+        CycleOne = cast.get_first_actor("CycleOne")
+        CycleOne.turn_head(self._direction)

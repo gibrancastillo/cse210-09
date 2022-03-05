@@ -7,8 +7,8 @@ class HandleCollisionsAction(Action):
     """
     An update action that handles interactions between the actors.
     
-    The responsibility of HandleCollisionsAction is to handle the situation when the CylcleOne collides
-    with the food, or the CylcleOne collides with its segments, or the game is over.
+    The responsibility of HandleCollisionsAction is to handle the situation when the CycleOne collides
+    with the food, or the CycleOne collides with its segments, or the game is over.
 
     Attributes:
         _is_game_over (boolean): Whether or not the game is over.
@@ -31,45 +31,45 @@ class HandleCollisionsAction(Action):
             self._handle_game_over(cast)
 
     def _handle_food_collision(self, cast):
-        """Updates the score nd moves the food if the CylcleOne collides with the food.
+        """Updates the score nd moves the food if the CycleOne collides with the food.
         
         Args:
             cast (Cast): The cast of Actors in the game.
         """
         score = cast.get_first_actor("scores")
         food = cast.get_first_actor("foods")
-        CylcleOne = cast.get_first_actor("CylcleOne")
-        head = CylcleOne.get_head()
+        CycleOne = cast.get_first_actor("CycleOne")
+        head = CycleOne.get_head()
 
         if head.get_position().equals(food.get_position()):
             points = food.get_points()
-            CylcleOne.grow_tail(points)
+            CycleOne.grow_tail(points)
             score.add_points(points)
             food.reset()
     
     def _handle_segment_collision(self, cast):
-        """Sets the game over flag if the CylcleOne collides with one of its segments.
+        """Sets the game over flag if the CycleOne collides with one of its segments.
         
         Args:
             cast (Cast): The cast of Actors in the game.
         """
-        CylcleOne = cast.get_first_actor("CylcleOne")
-        head = CylcleOne.get_segments()[0]
-        segments = CylcleOne.get_segments()[1:]
+        CycleOne = cast.get_first_actor("CycleOne")
+        head = CycleOne.get_segments()[0]
+        segments = CycleOne.get_segments()[1:]
         
         for segment in segments:
             if head.get_position().equals(segment.get_position()):
                 self._is_game_over = True
         
     def _handle_game_over(self, cast):
-        """Shows the 'game over' message and turns the CylcleOne and food white if the game is over.
+        """Shows the 'game over' message and turns the CycleOne and food white if the game is over.
         
         Args:
             cast (Cast): The cast of Actors in the game.
         """
         if self._is_game_over:
-            CylcleOne = cast.get_first_actor("CylcleOne")
-            segments = CylcleOne.get_segments()
+            CycleOne = cast.get_first_actor("CycleOne")
+            segments = CycleOne.get_segments()
             food = cast.get_first_actor("foods")
 
             x = int(constants.MAX_X / 2)

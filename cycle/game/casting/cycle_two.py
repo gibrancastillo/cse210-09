@@ -3,11 +3,11 @@ from game.casting.actor import Actor
 from game.shared.point import Point
 
 
-class CylcleTwo(Actor):
+class CycleTwo(Actor):
     """
     A long limbless reptile.
     
-    The responsibility of CylcleTwo is to move itself.
+    The responsibility of CycleTwo is to move itself.
 
     Attributes:
         _points (int): The number of points the food is worth.
@@ -55,7 +55,7 @@ class CylcleTwo(Actor):
         x = int(constants.MAX_X / 2)
         y = int(constants.MAX_Y / 2)
 
-        for i in range(constants.CylcleOne_LENGTH):
+        for i in range(constants.CycleOne_LENGTH):
             position = Point(x - i * constants.CELL_SIZE, y)
             velocity = Point(1 * constants.CELL_SIZE, 0)
             text = "8" if i == 0 else "#"
