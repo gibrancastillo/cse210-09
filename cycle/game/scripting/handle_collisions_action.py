@@ -73,6 +73,9 @@ class HandleCollisionsAction(Action):
             CycleTwo = cast.get_first_actor("CycleTwo")
             segments_two = CycleTwo.get_segments()
 
+            CycleOne.set_color(constants.WHITE)
+            CycleTwo.set_color(constants.WHITE)
+
             x = int(constants.MAX_X / 2)
             y = int(constants.MAX_Y / 2)
             position = Point(x, y)

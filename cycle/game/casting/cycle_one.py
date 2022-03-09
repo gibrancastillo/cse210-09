@@ -12,8 +12,9 @@ class CycleOne(Actor):
     Attributes:
         _points (int): The number of points the food is worth.
     """
-    def __init__(self):
+    def __init__(self,color):
         super().__init__()
+        self._cycle_color = color
         self._segments = []
         self._prepare_body()
 
@@ -45,7 +46,7 @@ class CycleOne(Actor):
             segment.set_position(position)
             segment.set_velocity(velocity)
             segment.set_text("#")
-            segment.set_color(constants.RED)
+            segment.set_color(self._cycle_color)
             self._segments.append(segment)
 
     def turn_head(self, velocity):

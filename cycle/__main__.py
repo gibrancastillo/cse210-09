@@ -21,8 +21,8 @@ def main():
     
     # create the cast
     cast = Cast()
-    cast.add_actor("CycleOne", CycleOne())
-    cast.add_actor("CycleTwo", CycleTwo())
+    cast.add_actor("CycleOne", CycleOne(constants.RED))
+    cast.add_actor("CycleTwo", CycleTwo(constants.GREEN))
     cast.add_actor("scores", Score())
    
     # start the game
