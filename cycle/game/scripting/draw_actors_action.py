@@ -1,3 +1,4 @@
+from turtle import position
 from game.scripting.action import Action
 
 
@@ -26,15 +27,23 @@ class DrawActorsAction(Action):
             cast (Cast): The cast of Actors in the game.
             script (Script): The script of Actions in the game.
         """
-        score = cast.get_first_actor("scores")
-        food = cast.get_first_actor("foods")
+        # score = cast.get_first_actor("scores")
+        # food = cast.get_first_actor("foods")
         CycleOne = cast.get_first_actor("CycleOne")
         segments = CycleOne.get_segments()
+        # segments.set_position(1,3)
         messages = cast.get_actors("messages")
 
+        CycleTwo = cast.get_first_actor("CycleTwo")
+        segments_two = CycleTwo.get_segments()
+        # segments_two.set_position(1,7)
+
         self._video_service.clear_buffer()
-        self._video_service.draw_actor(food)
+        # self._video_service.draw_actor(food)
         self._video_service.draw_actors(segments)
-        self._video_service.draw_actor(score)
+
+        self._video_service.draw_actors(segments_two)
+
+        # self._video_service.draw_actor(score)
         self._video_service.draw_actors(messages, True)
         self._video_service.flush_buffer()
