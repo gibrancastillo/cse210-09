@@ -52,8 +52,8 @@ class CycleTwo(Actor):
         self._segments[0].set_velocity(velocity)
     
     def _prepare_body(self):
-        x = int(constants.MAX_X / 3)
-        y = int(constants.MAX_Y / 3)
+        x = int(constants.MAX_X / 2)
+        y = int(constants.MAX_Y / 2)
 
         for i in range(constants.CycleOne_LENGTH):
             position = Point(x - i * constants.CELL_SIZE, y)

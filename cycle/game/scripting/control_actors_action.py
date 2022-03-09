@@ -30,6 +30,8 @@ class ControlActorsAction(Action):
             cast (Cast): The cast of Actors in the game.
             script (Script): The script of Actions in the game.
         """
+        
+        #CYCLE ONE CONTROLS
         # left
         if self._keyboard_service.is_key_down('a'):
             self._direction = Point(-constants.CELL_SIZE, 0)
@@ -46,7 +48,8 @@ class ControlActorsAction(Action):
         if self._keyboard_service.is_key_down('s'):
             self._direction = Point(0, constants.CELL_SIZE)
         
-        ######
+
+        #CYCLE TWO CONTROLS
         # left
         if self._keyboard_service.is_key_down('j'):
             self._direction_two = Point(-constants.CELL_SIZE, 0)
@@ -62,7 +65,8 @@ class ControlActorsAction(Action):
         # down
         if self._keyboard_service.is_key_down('k'):
             self._direction_two = Point(0, constants.CELL_SIZE)
-        ######
+        
+        
         
         CycleOne = cast.get_first_actor("CycleOne")
         CycleOne.turn_head(self._direction)
