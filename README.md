@@ -39,3 +39,4 @@ root                    (project root folder)
 ---
 * Patrick Ochen (Patrickochen97@gmail.com)
 * Zibanani Nkomo (nko21005@byui.edu)
+* Clyve Kokotiko (kok21002@byui.edu)
