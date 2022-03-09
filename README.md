@@ -1,6 +1,3 @@
-# cse210-09
-Lesson 10 - Polymorphism
-
 # Cycle
 
 Cycle is a game where the players try to cut each other off using cycles that leave a trail behind them. .
