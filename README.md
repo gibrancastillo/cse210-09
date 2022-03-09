@@ -1,8 +1,9 @@
 # cse210-09
 Lesson 10 - Polymorphism
 
-# snake
-Snake is a video game genre where the player maneuvers a growing line that becomes a primary obstacle to itself. The concept originated in the 1976 two-player arcade game Blockade from Gremlin Industries, and the ease of implementation has led to hundreds of versions (some of which have the word snake or worm in the title) for many platforms. 1982's Tron arcade game, based on the film, includes snake gameplay for the single-player Light Cycles segment. After a variant was preloaded on Nokia mobile phones in 1998, there was a resurgence of interest in snake games as it found a larger audience. There are several hundred snake games for mobile phones.
+# Cycle
+
+Cycle is a game where the players try to cut each other off using cycles that leave a trail behind them. .
 
 ## Getting started
 ---
@@ -23,7 +24,7 @@ project folder. Select the main module inside the hunter folder and click the "r
 The project files and folders are organized as follows:
 ```
 root                    (project root folder)
-+-- snake               (source code for game)
++-- cycle               (source code for game)
   +-- game              (specific game classes)
   +-- __main__.py       (entry point for program)
 +-- README.md           (general info)
@@ -37,3 +38,4 @@ root                    (project root folder)
 ## Authors
 ---
 * Patrick Ochen (Patrickochen97@gmail.com)
+* Zibanani Nkomo (nko21005@byui.edu)
