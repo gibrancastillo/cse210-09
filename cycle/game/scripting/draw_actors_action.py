@@ -28,11 +28,11 @@ class DrawActorsAction(Action):
             script (Script): The script of Actions in the game.
         """
         
-        CycleOne = cast.get_first_actor("CycleOne")
+        CycleOne = cast.get_first_actor("cycle_one")
         segments = CycleOne.get_segments()
         messages = cast.get_actors("messages")
 
-        CycleTwo = cast.get_first_actor("CycleTwo")
+        CycleTwo = cast.get_first_actor("cycle_two")
         segments_two = CycleTwo.get_segments()
         
 

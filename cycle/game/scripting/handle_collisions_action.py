@@ -35,29 +35,29 @@ class HandleCollisionsAction(Action):
         Args:
             cast (Cast): The cast of Actors in the game.
         """
-        cycles = cast.get_actors("CycleOne")
-        cycles_two = cast.get_actors("CycleOne")
+        cycle_one = cast.get_first_actor("cycle_one")
+        cycle_two = cast.get_first_actor("cycle_two")
 
-        CycleOne = cycles[0]
-        head = CycleOne.get_segments()[0]
-        segments = CycleOne.get_segments()[1:]
+        head_one = cycle_one.get_segments()[0]
+        segments_one = cycle_one.get_segments()[1:]
 
-        CycleTwo = cycles_two[0]
-        head_two = CycleTwo.get_segments()[0]
-        segments_two = CycleTwo.get_segments()[1:]
+        head_two = cycle_two.get_segments()[0]
+        segments_two = cycle_two.get_segments()[1:]
         
-        for segment in segments:
-            # if head.get_position().equals(segment.get_position()):
-            #     self._is_game_over = True
-
+        for segment in segments_one:
+            # Check if CyleOne's head collides with it's own tail
+            if head_one.get_position().equals(segment.get_position()):
+                self._is_game_over = True
+            # # Check if CyleTwo's head collides with CycleOne's tail
             if head_two.get_position().equals(segment.get_position()):
                 self._is_game_over = True
         
         for segment in segments_two:
-            # if head_two.get_position().equals(segment.get_position()):
-            #     self._is_game_over = True
-            
-            if head.get_position().equals(segment.get_position()):
+            # Check if CycleTwo's head collides with it's own tail
+            if head_two.get_position().equals(segment.get_position()):
+                self._is_game_over = True
+            # Check if CyleOne's head collides with CycleTwo's tail
+            if head_one.get_position().equals(segment.get_position()):
                 self._is_game_over = True
         
     def _handle_game_over(self, cast):
@@ -67,14 +67,14 @@ class HandleCollisionsAction(Action):
             cast (Cast): The cast of Actors in the game.
         """
         if self._is_game_over:
-            CycleOne = cast.get_first_actor("CycleOne")
-            segments = CycleOne.get_segments()
+            cycle_one = cast.get_first_actor("cycle_one")
+            segments_one = cycle_one.get_segments()
 
-            CycleTwo = cast.get_first_actor("CycleTwo")
-            segments_two = CycleTwo.get_segments()
+            cycle_two = cast.get_first_actor("cycle_two")
+            segments_two = cycle_two.get_segments()
 
-            CycleOne.set_color(constants.WHITE)
-            CycleTwo.set_color(constants.WHITE)
+            cycle_one.set_color(constants.WHITE)
+            cycle_two.set_color(constants.WHITE)
 
             x = int(constants.MAX_X / 2)
             y = int(constants.MAX_Y / 2)
@@ -85,7 +85,7 @@ class HandleCollisionsAction(Action):
             message.set_position(position)
             cast.add_actor("messages", message)
 
-            for segment in segments:
+            for segment in segments_one:
                 segment.set_color(constants.WHITE)
 
             for segment in segments_two:

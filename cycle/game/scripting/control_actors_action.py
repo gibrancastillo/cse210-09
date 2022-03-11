@@ -68,8 +68,8 @@ class ControlActorsAction(Action):
         
         
         
-        CycleOne = cast.get_first_actor("CycleOne")
-        CycleOne.turn_head(self._direction)
+        cycle_one = cast.get_first_actor("cycle_one")
+        cycle_one.turn_head(self._direction)
 
-        CycleTwo = cast.get_first_actor("CycleTwo")
-        CycleTwo.turn_head(self._direction_two)
+        cycle_two = cast.get_first_actor("cycle_two")
+        cycle_two.turn_head(self._direction_two)

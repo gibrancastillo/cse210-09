@@ -23,11 +23,9 @@ class TailGrowth(Action):
         """
         self._grow += 1
         
-        CycleOne = cast.get_actors("CycleOne")
-        CycleTwo = cast.get_actors("CycleTwo")
-        cycle1 = CycleOne[0]
-        cycle2 = CycleTwo[0]
+        cycle_one = cast.get_first_actor("cycle_one")
+        cycle_two = cast.get_first_actor("cycle_two")
         
         if (self._grow % 1) == 0:
-            cycle1.grow_tail(1)
-            cycle2.grow_tail(1)
+            cycle_one.grow_tail(1)
+            cycle_two.grow_tail(1)
