@@ -28,6 +28,6 @@ class TailGrowth(Action):
         cycle1 = CycleOne[0]
         cycle2 = CycleTwo[0]
         
-        if (self._grow % 30) == 0:
+        if (self._grow % 1) == 0:
             cycle1.grow_tail(1)
             cycle2.grow_tail(1)
