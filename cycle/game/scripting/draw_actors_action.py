@@ -27,18 +27,16 @@ class DrawActorsAction(Action):
             cast (Cast): The cast of Actors in the game.
             script (Script): The script of Actions in the game.
         """
-        
-        CycleOne = cast.get_first_actor("cycle_one")
-        segments = CycleOne.get_segments()
         messages = cast.get_actors("messages")
 
-        CycleTwo = cast.get_first_actor("cycle_two")
-        segments_two = CycleTwo.get_segments()
+        cycle_one = cast.get_first_actor("cycle_one")
+        segments_one = cycle_one.get_segments()
         
-
+        cycle_two = cast.get_first_actor("cycle_two")
+        segments_two = cycle_two.get_segments()
+        
         self._video_service.clear_buffer()
-        self._video_service.draw_actors(segments)
-
+        self._video_service.draw_actors(segments_one)
         self._video_service.draw_actors(segments_two)
 
         self._video_service.draw_actors(messages, True)

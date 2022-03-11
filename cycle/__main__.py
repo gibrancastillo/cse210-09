@@ -1,20 +1,17 @@
 import constants
 
 from game.casting.cast import Cast
-from game.casting.score import Score
 from game.casting.cycle_one import CycleOne
 from game.casting.cycle_two import CycleTwo
 from game.scripting.script import Script
 from game.scripting.control_actors_action import ControlActorsAction
 from game.scripting.move_actors_action import MoveActorsAction
 from game.scripting.handle_collisions_action import HandleCollisionsAction
-from game.scripting.tail_growth import TailGrowth
+from game.scripting.trail_growth import TrailGrowth
 from game.scripting.draw_actors_action import DrawActorsAction
 from game.directing.director import Director
 from game.services.keyboard_service import KeyboardService
 from game.services.video_service import VideoService
-from game.shared.color import Color
-from game.shared.point import Point
 
 
 def main():
@@ -23,7 +20,6 @@ def main():
     cast = Cast()
     cast.add_actor("cycle_one", CycleOne(constants.RED))
     cast.add_actor("cycle_two", CycleTwo(constants.GREEN))
-    cast.add_actor("scores", Score())
    
     # start the game
     keyboard_service = KeyboardService()
@@ -33,7 +29,7 @@ def main():
     script.add_action("input", ControlActorsAction(keyboard_service))
     script.add_action("update", MoveActorsAction())
     script.add_action("update", HandleCollisionsAction())
-    script.add_action("update", TailGrowth())
+    script.add_action("update", TrailGrowth())
     script.add_action("output", DrawActorsAction(video_service))
     
     director = Director(video_service)

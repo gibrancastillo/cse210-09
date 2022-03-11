@@ -31,7 +31,7 @@ class ControlActorsAction(Action):
             script (Script): The script of Actions in the game.
         """
         
-        #CYCLE ONE CONTROLS
+        # CycleOne's keyboard controls
         # left
         if self._keyboard_service.is_key_down('a'):
             self._direction = Point(-constants.CELL_SIZE, 0)
@@ -49,7 +49,7 @@ class ControlActorsAction(Action):
             self._direction = Point(0, constants.CELL_SIZE)
         
 
-        #CYCLE TWO CONTROLS
+        # CycleTwo's keyboard controls
         # left
         if self._keyboard_service.is_key_down('j'):
             self._direction_two = Point(-constants.CELL_SIZE, 0)
@@ -65,7 +65,6 @@ class ControlActorsAction(Action):
         # down
         if self._keyboard_service.is_key_down('k'):
             self._direction_two = Point(0, constants.CELL_SIZE)
-        
         
         
         cycle_one = cast.get_first_actor("cycle_one")

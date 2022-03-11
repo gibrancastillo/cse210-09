@@ -45,18 +45,18 @@ class HandleCollisionsAction(Action):
         segments_two = cycle_two.get_segments()[1:]
         
         for segment in segments_one:
-            # Check if CyleOne's head collides with it's own tail
+            # Check if CyleOne's head collides with it's own trail
             if head_one.get_position().equals(segment.get_position()):
                 self._is_game_over = True
-            # # Check if CyleTwo's head collides with CycleOne's tail
+            # # Check if CyleTwo's head collides with CycleOne's trail
             if head_two.get_position().equals(segment.get_position()):
                 self._is_game_over = True
         
         for segment in segments_two:
-            # Check if CycleTwo's head collides with it's own tail
+            # Check if CycleTwo's head collides with it's own trail
             if head_two.get_position().equals(segment.get_position()):
                 self._is_game_over = True
-            # Check if CyleOne's head collides with CycleTwo's tail
+            # Check if CyleOne's head collides with CycleTwo's trail
             if head_one.get_position().equals(segment.get_position()):
                 self._is_game_over = True
         
