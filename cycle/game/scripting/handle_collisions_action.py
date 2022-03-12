@@ -3,6 +3,7 @@ from game.casting.actor import Actor
 from game.scripting.action import Action
 from game.shared.point import Point
 
+
 class HandleCollisionsAction(Action):
     """
     An update action that handles interactions between the actors.
@@ -27,7 +28,7 @@ class HandleCollisionsAction(Action):
         """
         if not self._is_game_over:
             self._handle_segment_collision(cast)
-            self._handle_game_over(cast)
+            self._handle_game_over(cast, script)
     
     def _handle_segment_collision(self, cast):
         """Sets the game over flag if the CycleOne collides with one of its segments.
@@ -60,13 +61,18 @@ class HandleCollisionsAction(Action):
             if head_one.get_position().equals(segment.get_position()):
                 self._is_game_over = True
         
-    def _handle_game_over(self, cast):
+    def _handle_game_over(self, cast, script):
         """Shows the 'game over' message and turns the CycleOne and food white if the game is over.
         
         Args:
             cast (Cast): The cast of Actors in the game.
+            script (Script): The script of actions.
         """
         if self._is_game_over:
+            actions = script.get_actions("update")
+            trail_grow = actions[2]
+            trail_grow.set_is_game_over(True)
+
             cycle_one = cast.get_first_actor("cycle_one")
             segments_one = cycle_one.get_segments()
 
